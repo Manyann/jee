@@ -20,8 +20,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="Dictionnaire")
 @NamedQueries({
-    @NamedQuery(name="Dictionnaire.findBySplice", 
-        query="SELECT d FROM Dictionnaire d where d.word LIKE CONCAT('%',:splice,'%')") ,
+    @NamedQuery(name="Dictionnaire.findBySlice", 
+        query="SELECT d FROM Dictionnaire d where d.word LIKE CONCAT('%',:slice,'%')") ,
     @NamedQuery(name="Dictionnaire.findOneWord", 
         query="SELECT d FROM Dictionnaire d where d.word = :input")
 })

@@ -36,7 +36,7 @@ public class MessagingResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response pay(String message) {
+    public Response message(String message) {
         
         StringReader reader = new StringReader(message);
         String content;
@@ -50,6 +50,9 @@ public class MessagingResource {
         if(content.length() < 30){ 
             return Response.status(400).entity("Texte trop court : ignoré").build();
         }
+        
+        
+        
         return Response.accepted().build();
     }
 }

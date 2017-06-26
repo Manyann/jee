@@ -9,6 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import com.gee.data.model.DataAccess;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
+import javax.inject.Inject;
+
 
 /**
  *
@@ -16,10 +19,24 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name ="Dictionnaire")
 @SessionScoped
-public class DictionnaireBean {
+public class DictionnaireBean implements Serializable {
+    
     @ManagedProperty(value="#{word}")
     private String word;
-
+    
+    
+    private DataAccess data = new DataAccess();
+    
+    public void insert(){
+        data.saveWord();
+    }
+    
+    public String[] find(){
+        String words[] = null;
+        words = data.findWord(getWord());
+        return words;
+    }
+    
     public String getWord() {
         return word;
     }
