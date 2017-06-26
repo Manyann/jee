@@ -1,2 +1,12 @@
 com\gee\project_gen\ApplicationConfig.class
+com\gee\data\entity\Dictionnaire.class
+com\gee\data\DictionnaireBean.class
+com\gee\decryption\Decryption.class
+com\gee\data\model\DataAccess.class
+com\gee\data\DicoDAO.class
+com\gee\data\DicoService.class
+com\gee\decryption\DecryptionInterface.class
 com\gee\project_gen\MessagingResource.class
+com\gee\data\DicoBean.class
+com\gee\data\entity\Dictionnaire_.class
+com\gee\data\DicoServiceLocal.class
