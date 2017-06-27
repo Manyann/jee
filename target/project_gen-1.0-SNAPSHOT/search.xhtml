@@ -3,13 +3,30 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html   xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <title>Search</title>
     </h:head>
     <h:body>
         <h2>Result :</h2>
-        #{dicoModel.listOfWord}
+        <h:form>
+        <h:dataTable value="#{dicoModel.listOfWord}"  var="item">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID" />
+                </f:facet>
+                <h:outputText value="#{item.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Mot" />
+                </f:facet>
+                <h:outputText value="#{item.word}" />
+            </h:column>
+        </h:dataTable>
+      </h:form> 
     </h:body>
 </html>

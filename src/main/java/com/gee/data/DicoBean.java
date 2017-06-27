@@ -9,6 +9,7 @@ import com.gee.data.entity.Dictionnaire;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -25,15 +26,10 @@ public class DicoBean implements Serializable {
     
     private String word;
     private List<Dictionnaire> listOfWord;
+    private int id;
     
     @Inject
     private DicoServiceLocal dicoLocal;
-
-    public String addWord(){
-        System.out.println(word);
-        dicoLocal.addWord(word);
-        return "authentication";
-    }
 
     public String create(){
         System.out.println("création du mot " + word);
@@ -46,7 +42,7 @@ public class DicoBean implements Serializable {
     
     public String findWord(){
         System.out.println("recherche du mot " + word);
-        List<Dictionnaire> listOfWord = dicoLocal.findWord(word);
+        listOfWord = dicoLocal.findWord(word);
         HttpSession session = (HttpSession)
         FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         session.invalidate();
@@ -58,6 +54,20 @@ public class DicoBean implements Serializable {
     }
     public void setWord(String word) {
         this.word = word;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public List<Dictionnaire>  getListOfWord() {
+        return listOfWord;
+    }
+    public void setListOfWord(List<Dictionnaire> listOfWord) {
+        this.listOfWord = listOfWord;
     }
 
 

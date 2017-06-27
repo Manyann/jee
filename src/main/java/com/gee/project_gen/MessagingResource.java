@@ -19,7 +19,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.StringReader;
 import javax.json.*;
-
+import com.gee.decryption.Decryption;
+import com.gee.decryption.DecryptionInterface;
 
 /**
  * REST Web Service
@@ -50,8 +51,6 @@ public class MessagingResource {
         if(content.length() < 30){ 
             return Response.status(400).entity("Texte trop court : ignoré").build();
         }
-        
-        
         
         return Response.accepted().build();
     }
