@@ -12,11 +12,14 @@ import javax.ejb.Local;
 /**
  *
  * @author yann-
+ * 
+ * Interface de dicoService
+ * 
  */
 @Local
 public interface DicoServiceLocal {
     public void addWord(String word);
-    public void save();
+    public List<Dictionnaire> findAllDico();
     public List<Dictionnaire> findWord(String word);
 
 }

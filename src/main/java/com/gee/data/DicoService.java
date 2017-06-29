@@ -5,45 +5,57 @@
  */
 package com.gee.data;
 
-import javax.ejb.Stateful;;
-import javax.ejb.Remove;
 
 import com.gee.data.entity.Dictionnaire;
-import com.gee.data.entity.Dictionnaire;
+import com.gee.project_gen.Verif;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author yann-
+ * 
+ * Service appelant les méthodes du DAO
  */
-@Stateful
+@Stateless
 public class DicoService implements DicoServiceLocal {
 
-    private Dictionnaire dic = new Dictionnaire();
+    
+
      
     @Inject
     DicoDAO dicoDAO;
     
+    // On peuple notre objet verif avec l info a ajouter en bdd
     @Override
     public void addWord(String word) {
+        Dictionnaire dic = new Dictionnaire();
+        Verif verif = new Verif();
+        verif.setContent(word);
         dic.setWord(word);
-        System.out.println("Mot ajouté "+word);
-        save();
+        save(dic);
     }
     
+    // récupération d'une liste
     @Override
     public List<Dictionnaire> findWord(String word) {
-        System.out.println("Mots trouvés ");
         List<Dictionnaire> words = dicoDAO.find(word);         
         return words;
     }
     
-    @Override
-    @Remove
-    public void save() {
+    // on enregistre en bdd un mot
+    private void save(Dictionnaire dic) {
         dicoDAO.insert(dic);
         System.out.println("sauvegarde du mot");
     } 
+    
+    // on récupère tous les mots de la bdd
+    @Override
+    public List<Dictionnaire> findAllDico() {
+        System.out.println("Mots trouvés ");
+        List<Dictionnaire> words = dicoDAO.findAllDico();         
+        return words;
+    }
 
 }

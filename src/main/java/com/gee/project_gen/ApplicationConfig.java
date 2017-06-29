@@ -5,7 +5,6 @@
  */
 package com.gee.project_gen;
 
-import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**

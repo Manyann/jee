@@ -19,16 +19,18 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="Dictionnaire")
-@NamedQueries({
+@NamedQueries({ // Ici l'ensemble des requetes utilisés dans le programme
     @NamedQuery(name="Dictionnaire.findBySlice", 
         query="SELECT d FROM Dictionnaire d where d.word LIKE CONCAT('%',:slice,'%')") ,
     @NamedQuery(name="Dictionnaire.findOneWord", 
-        query="SELECT d FROM Dictionnaire d where d.word = :input")
+        query="SELECT d FROM Dictionnaire d where d.word = :input"),
+    @NamedQuery(name="Dictionnaire.findAllDico", 
+        query="SELECT d FROM Dictionnaire d ")
 })
 public class Dictionnaire implements Serializable {  
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // identity car mysql sinon ça aurait été AUTO
     private Long id;
     
     //mot du dictionnaire

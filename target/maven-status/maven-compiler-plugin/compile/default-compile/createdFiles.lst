@@ -1,12 +1,12 @@
+com\gee\data\metier\VerifServiceLocal.class
 com\gee\project_gen\ApplicationConfig.class
 com\gee\data\entity\Dictionnaire.class
-com\gee\data\DictionnaireBean.class
-com\gee\decryption\Decryption.class
-com\gee\data\model\DataAccess.class
+com\gee\project_gen\Verif.class
+com\gee\data\Decode.class
 com\gee\data\DicoDAO.class
 com\gee\data\DicoService.class
-com\gee\decryption\DecryptionInterface.class
 com\gee\project_gen\MessagingResource.class
 com\gee\data\DicoBean.class
 com\gee\data\entity\Dictionnaire_.class
 com\gee\data\DicoServiceLocal.class
+com\gee\data\metier\VerifService.class
