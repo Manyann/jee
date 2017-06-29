@@ -69,9 +69,9 @@ public class MessagingResource {
             JsonObject jo = jreader.readObject();
             key = jo.getString("key");
             file = jo.getString("file");
-            content = jo.getString("content");
+            content = jo.getString("text");
         }
-        
+        System.out.println(key);
         verif.setContent(content); // On set les attributs de l'objet
         verif.setKey(key);
         verif.setFile(file);
