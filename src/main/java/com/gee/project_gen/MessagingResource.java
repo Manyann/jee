@@ -69,16 +69,17 @@ public class MessagingResource {
             JsonObject jo = jreader.readObject();
             key = jo.getString("key");
             file = jo.getString("file");
-            content = jo.getString("text");
+            content = jo.getString("content");
         }
-        System.out.println(key);
+        
+        System.out.println(key+" ___ " +file+" ___ "+content);
         verif.setContent(content); // On set les attributs de l'objet
         verif.setKey(key);
         verif.setFile(file);
 
-        if(content.length() < 8){ 
+       /* if(content.length() < 8){ 
             return Response.status(400).entity("Texte trop court : ignoré").build();
-        }
+        }*/
         
         sendMessage(verif);
         return Response.accepted().build(); // 202  message reçu et accepté
